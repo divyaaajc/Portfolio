@@ -1,29 +1,21 @@
-let people = ['divya', 'chris', 'riona', 'cameron'];
-let randNum = Math.floor(Math.random() * people.length);
-let randPeople = people[randNum];
+let projectDescription = document.querySelector('.description');
 
-let pair = function(arr) {
-    let result = [];
-    let recipients = arr.slice();
-    let len = arr.length;
-    for (let i = 0; i < len; i++) {
-      let sender = arr[i];		
-      let recipientIndex = Math.floor(Math.random() * recipients.length);
-      while (recipients[recipientIndex] === sender) {
-       
-        recipientIndex = Math.floor(Math.random() * recipients.length);
-      }
-      let recipient = recipients.splice(recipientIndex, 1)[0];
-      result.push({
-        sender: sender,
-        receiver: recipient
-      });
-    }
-    return result;
-  };
-  
-  // 
-  console.log(pair(people));
-  
+let projectImg = document.querySelector('img');
 
+let projectTitle = document.querySelector('h3');
 
+let projectInfo = document.querySelector('.box');
+
+let showMore = () => {
+  projectImg.style.filter = 'brightness(50%)';
+  projectDescription.style.visibility = 'visible';
+};
+
+let showLess = () => {
+  projectImg.style.filter = 'brightness(100%)';
+  projectDescription.style.visibility = 'hidden';
+};
+
+projectInfo.addEventListener('mouseover', showMore);
+
+projectInfo.addEventListener('mouseout', showLess);
